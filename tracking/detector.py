@@ -1,4 +1,4 @@
-from cv2 import imread, imshow, waitKey, destroyAllWindows, threshold, THRESH_BINARY
+from cv2 import imread, imshow, waitKey, destroyAllWindows, threshold, THRESH_BINARY, SimpleBlobDetector
 
 # constants
 global PATH_TO_FRAMES
@@ -23,3 +23,7 @@ imshow("threshFrame0", thresholdFrame)
 waitKey(0)
 # destroys open windows after key press
 destroyAllWindows()
+
+detector = SimpleBlobDetector()
+blobsDetected = detector.detect(thresholdFrame)
+print(blobsDetected)
