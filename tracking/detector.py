@@ -18,17 +18,9 @@ waitKey(0)
 # destroys open windows after key press
 destroyAllWindows()
 
-# # making only the pixels above 200 brightness visible, the rest are black.
-thresholdValue, thresholdFrame = threshold(currentFrame, 200, 255, THRESH_BINARY)
-# imshow("threshFrame0", thresholdFrame)
-# # waits till user presses any key to stop python kernel crashing
-# waitKey(0)
-# # destroys open windows after key press
-# destroyAllWindows()
-
 # Setting the parameters for the simple blob detector
 params = SimpleBlobDetector_Params()
-params.minThreshold = 200
+params.minThreshold = 190
 params.maxThreshold = 255
 
 params.filterByCircularity = True
@@ -39,13 +31,12 @@ params.blobColor = 255
 params.filterByCircularity = True
 params.minCircularity = 0.4
 
-
-
+# Creating the blob detector using the parameters set
 detector = SimpleBlobDetector_create(params)
-blobsDetected = detector.detect(thresholdFrame)
+blobsDetected = detector.detect(currentFrame)
 print(blobsDetected)
 
-output = drawKeypoints(thresholdFrame, blobsDetected, array([]), (0, 0, 255),
+output = drawKeypoints(currentFrame, blobsDetected, array([]), (0, 0, 255),
                            DRAW_MATCHES_FLAGS_DRAW_RICH_KEYPOINTS)
  
 # Show the output
