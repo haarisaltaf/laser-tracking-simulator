@@ -11,10 +11,8 @@ A simulation project for detecting and centring a laser beam in noisy video fram
 ## 📦 Requirements
 - Python 3.8+
 - OpenCV
-- NumPy
 - Matplotlib
-- SciPy
-- (Optional) PyTorch or TensorFlow
+- Pillow
 
 Install with:
 ```bash
